@@ -101,11 +101,75 @@ console.log(numbers);
 // Terzo esercizio
 
 /* Funzione che fa clear da un array con più dati [1,2, true, 3, pippo, false] */
+let arrayToFilter = [4, 267, true, 39, "johnny", false];
+let arrayToClean = [1, 2, true, 3, "pippo", false];
 
-let arrayToClear = [1, 2, true, 3, "pippo", false];
+function arrayCleaner(arrayToClean, permittedType){
+    let tempArray = [];
+    for (const element of arrayToClean){
+        if (typeof element === permittedType){
+            tempArray.push(element);
+        }
+    }
+    return tempArray;
+}
+console.log(arrayCleaner(arrayToClean, "string"));
 
-function arrayCleaner(){
-    
+function filterToRemoveUpTo100(){
+    let tempArray = [];
+    for (const element of arrayToFilter){
+        if (element <= 100){
+            tempArray.push(element);
+        }
+    }
+    return tempArray;
+}
+console.log(filterToRemoveUpTo100(numbers));
+
+function isEven(element){
+    if (element % 2 === 0){
+        return true;
+    } else {
+        return false;
+    }
 }
 
-arrayCleaner();
+function greaterThan30(){
+    /* if (element > 30){
+        return true;
+    } else {
+        return false;
+    } */
+
+    return (element > 30);
+}
+
+function filter(arrayToFilter, filterFunction){
+    let tempArray = [];
+    for (const element of arrayToFilter){
+        if (filterFunction(element)){
+            tempArray.push(element);
+        }
+    }
+    return tempArray;
+}
+console.log(filter(numbers, greaterThan30));
+console.log(filter(numbers, isEven));
+console.log(numbers.filter(isEven));
+
+function isPositive(element){
+    return element > 0;
+}
+
+function isNegative(element){
+    return element < 0;
+}
+
+let isNegative2 = function(element){
+    return element < 0;
+}
+
+let isNegative3 = (element) => element < 0;
+
+console.log("IsPositive Filter: ", myArray.filter(isPositive));
+
