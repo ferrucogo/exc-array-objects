@@ -173,3 +173,17 @@ let isNegative3 = (element) => element < 0;
 
 console.log("IsPositive Filter: ", myArray.filter(isPositive));
 
+function hasEvenPosition(element, index){
+    if (index % 2 === 0){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+console.log(myArray.filter(hasEvenPosition));
+
+console.log(myArray.filter(function(element, index){
+    return index % 2 === 0;
+}));
+console.log(myArray.filter((e, i) => i % 2 === 0));
