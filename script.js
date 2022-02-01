@@ -187,3 +187,10 @@ console.log(myArray.filter(function(element, index){
     return index % 2 === 0;
 }));
 console.log(myArray.filter((e, i) => i % 2 === 0));
+
+function removeOddAddConcatenate(previous, current, index){
+    let tempString = previous;
+    if(index % 2 === 0){
+        tempString + current;
+    }
+}
